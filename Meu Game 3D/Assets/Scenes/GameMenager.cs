@@ -17,7 +17,7 @@ public class GameMenager : MonoBehaviour
     void Start()
     {
         TryGetComponent(out source);
-        restantes = FindObjectOfType<Moeda>().Length;
+        restantes = FindObjectsOfType<Moedas>().Length;
         hud.text = $"Moeda restante: {restantes}";
     }
 
