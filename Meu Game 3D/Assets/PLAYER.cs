@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,13 +10,16 @@ public class PLAYER : MonoBehaviour
     public int ForcaPulo = 10;
     public bool noChao = false;
 
-    public Rigidbody rb;
+    private Rigidbody rb;
+    private AudioSource source;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log(" start ");
         TryGetComponent(out rb);
+        TryGetComponent(out source);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,6 +41,8 @@ public class PLAYER : MonoBehaviour
         rb.AddForce(direção * velocidade * Time.deltaTime, ForceMode.Impulse);
         if (Input.GetKeyDown(KeyCode.Space) && noChao)
         {
+            //pulo 
+            source.Play();
             rb.AddForce(Vector3.up * ForcaPulo, ForceMode.Impulse);
         }
 
