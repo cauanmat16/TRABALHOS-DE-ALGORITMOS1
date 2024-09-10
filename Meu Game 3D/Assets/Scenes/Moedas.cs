@@ -9,8 +9,9 @@ public class Moedas : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player")
         {
+            FindObjectOfType<GameMenager>().SubtrairMoedas(1);
             Destroy(gameObject);
         }
 }

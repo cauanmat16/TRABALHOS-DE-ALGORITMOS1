@@ -44,6 +44,7 @@ public class PLAYER : MonoBehaviour
             //pulo 
             source.Play();
             rb.AddForce(Vector3.up * ForcaPulo, ForceMode.Impulse);
+            noChao = false;
         }
 
         if (transform.position.y < -5)
